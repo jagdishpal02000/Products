@@ -1,25 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import ProductBox from "./ProductBox";
+import Header from "./header";
+import Loading from "./loading";
+const url = "https://fakestoreapi.com/products";
 
-function App() {
+const App = () => {
+  const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState([]);
+  const fetchProducts = async () => {
+    setLoading(true);
+    try {
+      const resp = await fetch(url);
+      const products = await resp.json();
+      setLoading(false);
+      setProducts(products);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+
+  if (loading) {
+    return (
+      <main>
+        <Loading />
+      </main>
+    );
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <section className="main-container">
+        {products.map((product) => {
+          return <ProductBox product={product} key={product.id} />;
+        })}
+      </section>
+    </>
   );
-}
+};
 
 export default App;

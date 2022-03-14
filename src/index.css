@@ -1,13 +1,78 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+* {
+  margin: 0px;
+  padding: 0px;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.header {
+  padding: 10px 16px;
+  background: #555;
+  color: #f1f1f1;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding-top: 40px;
+  font-size: 40px;
+  text-align: center;
+}
+.main-container {
+  padding-top: 130px;
+}
+
+.box {
+  text-align: center;
+  width: 500px;
+  height: auto;
+  border: 2px solid;
+  border-color: rgb(209, 218, 218);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 15px;
+}
+
+.product-img {
+  width: 200px;
+  height: auto;
+}
+
+h3 {
+  text-align: left;
+  font-size: 20px;
+}
+
+.desc {
+  text-align: left;
+  margin-top: 8px;
+  font-size: 18px;
+}
+
+.cost {
+  font-size: 18px;
+  text-align: left;
+  margin-top: 18px;
+}
+
+.btn {
+  width: 120px;
+  height: 40px;
+  background-color: #2596be;
+  border-color: #2596be;
+  border-radius: 10px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #f1f1f1;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 60px;
+}
+
+@media (max-width: 480px) {
+  .box {
+    width: 350px;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
 }
