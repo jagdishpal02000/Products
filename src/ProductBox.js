@@ -1,7 +1,9 @@
-const ProductBox = (product) => {
+import React from "react";
+
+const ProductBox = (product, ref) => {
   const { id, title, price, description, image } = product.product;
   return (
-    <div key={id} className="box">
+    <div key={id} className="box" ref={ref}>
       <img className="product-img" src={image} alt={image} />
       <h3>{title}</h3>
       <p className="desc">{description}</p>
@@ -13,4 +15,6 @@ const ProductBox = (product) => {
   );
 };
 
-export default ProductBox;
+const forwardedProductBox = React.forwardRef(ProductBox);
+
+export default forwardedProductBox;
